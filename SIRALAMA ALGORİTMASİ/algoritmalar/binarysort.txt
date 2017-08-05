@@ -1,0 +1,64 @@
+				BÝNARY ÝNSERTÝON SORT
+				--------------------------------------------
+
+
+
+
+ÝKÝLÝ YERLEÞTÝRMELÝ SIRALAMA (BÝNARY ÝNSERTÝON SORT)
+-----------------------------------------------------------------------------------------------------------
+SIRALAMA BÝÇÝMÝ
+-----------------------------
+SEÇÝLEN DÝZÝ ELEMANININ KENDÝNDEN ÖNCE GELEN DÝZÝ ELEMANLARININ ARASINDA
+NEREYE YERLEÞTÝRÝLECEÐÝNE KARAR VERÝLÝRKEN GERÝYE DOÐRU ADIM ADIM GÝTMEK 
+YERÝNE BU DÝZÝ ELEMANINDAN ÖNCEKÝ TÜM DÝZÝ ELEMANLARININ SIRALANMIÞ 
+OLMASINDAN YARARLANARAK GERÝYE DOÐRU ÝKÝLÝ ARAMA YAPILMASI ESASINA DAYANIR.
+DÝZÝ ELEMANININ YERLEÞTÝRÝLECEÐÝ YER BULUNDUKTAN SONRA DÝREK YERLEÞTÝRMELÝ
+SIRALAMADAKÝ GÝBÝ DÝZÝ ELEMANLARI SAÐA DOÐRU KAYDIRILARAK ÝLGÝLÝ ELEMAN YERÝNE
+YERLEÞÝR.SIRALAMA HER DEFASINDA BU ÞEKÝLDE DEVAM ETMEKTEDÝR.
+
+					
+PROGRAM ÝÇÝNDEKÝ KODU=
+------------------------------------------------
+
+
+else if(ComboBox1->ItemIndex==8)//sýralama turu olarak BINARY INSERTION  SORT seçiliyse
+{
+ListBox5->Items->Clear();
+labelfalse();
+binary->Visible=true;
+basla=GetTickCount();
+DynamicArray<int>dizi;
+int orta,i,j,deger,adet,alt,ust;
+adet=StrToInt(Edit4->Text);
+dizi.Length=adet;
+
+for(i=0;i<=adet-1;i++)
+dizi[i]=StrToInt(ListBox3->Items->Strings[i]);
+for(i=1;i<adet;i++)
+{
+deger=dizi[i];
+alt=0;
+ust=i-1;
+while(alt<=ust)
+{
+orta=(alt+ust)/2;
+if(deger>dizi[orta])
+ust=orta-1;
+else
+alt=orta+1;
+}
+for(j=i-1;j>=alt;j=j-1)
+{
+dizi[j+1]=dizi[j];
+}
+dizi[alt]=deger;
+
+}
+for(i=0;i<=adet-1;i++)
+{
+ListBox5->Items->Strings[i]=dizi[i];
+}
+bitir=GetTickCount();
+binary->Caption=FloatToStr((bitir-basla)/1000);
+Series2->Add(StrToFloat(binary->Caption),"BINARY SORT B->K",clBlack);
+}

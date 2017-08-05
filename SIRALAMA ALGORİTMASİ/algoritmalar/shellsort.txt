@@ -1,0 +1,66 @@
+				SHELL SORT
+				----------------------
+
+
+
+
+KABUK SIRALAMASI(SHELL SORT)
+-------------------------------------------------------------
+SIRALAMA BÝÇÝMÝ
+-------------------------------------
+Algoritma liste üzerinde çoklu geçiþ yapar ve her seferinde eþit 
+uzunluktaki kümeleri  sýralar. Her geçiþte sýralanmasý gereken 
+küme büyür ve ensonunda uzunluðu tüm dizinin uzunluðuna eþit olur.
+
+
+
+PROGRAM ÝÇERÝSÝNDEKÝ KODU=
+---------------------------------------------------------------
+else if(ComboBox1->ItemIndex==3)//shell sort seçiliyse
+{
+ListBox5->Items->Clear();
+labelfalse();
+shell->Visible=true;
+basla=GetTickCount();
+//shell  sort deðiþkenleri tanýmlanýyor ve sýralama iþlemleri gerçekleþtiriliyor
+DynamicArray<int>dizi;
+int i,j,k,adet,deger,orta_eleman;
+
+adet=StrToInt(Edit4->Text);
+dizi.Length=adet;
+orta_eleman=floor(adet/2);
+for(i=0;i<=adet-1;i++)
+dizi[i]=StrToInt(ListBox3->Items->Strings[i]);//random sayýlar diziye aktarýlýyor
+while(orta_eleman>0)
+{
+for(i=orta_eleman;i<=adet-1;i++)
+{
+j=i-orta_eleman;
+while(j>=0)
+{
+k=j+orta_eleman;
+if(dizi[k]<=dizi[j])
+{
+j=-1;
+}
+else  //dizi içinde yer deðiþtirme iþlemleri gerçekleþiyor
+{
+deger=dizi[j];
+dizi[j]=dizi[k];
+dizi[k]=deger;
+j=j-orta_eleman;
+}
+}
+}
+orta_eleman=floor(orta_eleman/2);//dizideki orta eleman bulunuyor
+}
+for(i=0;i<=adet-1;i++)
+{
+ListBox5->Items->Add(dizi[i]);//dizi  listeye yazýlýyor
+
+}
+
+bitir=GetTickCount();
+shell->Caption=FloatToStr((bitir-basla)/1000);
+Series2->Add(StrToFloat(shell->Caption),"SHELL SORT B->K",clNavy);
+}

@@ -1,0 +1,87 @@
+				BUBBLE SORT
+				--------------------------
+
+
+
+
+KABARCIK SIRALAMASI(BUBBLE SORT)
+---------------------------------------------------------------------
+SIRALAMA BÝÇÝMÝ
+------------------------------
+Kabarcýk sýralamasý dizinin baþýndan baþlar ve dizi elemanlarýný
+ sýrayla seçer. Seçilen dizi elemaný kendinden sonra gelen 
+elemandan büyükse bu iki elemanýn yerleri deðiþtirilir. Bu iþlem 
+sonucunda dizinin en büyük elemaný dizi sonuna yerleþtirildiðinden
+ bir sonraki adýmda arama sýnýrý bir eleman geri çekilir. Bu iþlem,
+ dizinin sonundaki elemanýn karþýlaþtýrýlmasýna kadar yinelenerek 
+sürdürülür.
+
+
+Algoritmanýn Adým Adým Ýþleyiþi  
+---------------------------------------------------
+Ýçeriði "5 1 4 2 8" olan bir dizi kabarcýk sýralamasý ile en küçükten en büyüðe doðru 
+aþaðýdaki biçimde sýralanýr. 
+
+Birinci Geçiþ:
+( 5 1 4 2 8 )  ( 1 5 4 2 8 ) Burada algoritma ilk iki elemaný karþýlaþtýrýr ve yerlerini deðiþtirir.
+( 1 5 4 2 8 )  ( 1 4 5 2 8 )
+( 1 4 5 2 8 )  ( 1 4 2 5 8 )
+( 1 4 2 5 8 )  ( 1 4 2 5 8 ) Burada elemanlar zaten sýralý olduðu için algoritma yerlerini deðiþtirmez.
+Ýkinci Geçiþ:
+( 1 4 2 5 8 )  ( 1 4 2 5 8 )
+( 1 4 2 5 8 )  ( 1 2 4 5 8 )
+( 1 2 4 5 8 )  ( 1 2 4 5 8 )
+( 1 2 4 5 8 )  ( 1 2 4 5 8 )
+Artýk dizi sýralýdýr ancak algoritma iþlemin bittiðini bilmemektedir. 
+Algoritmanýn dizinin sýralandýðýný anlamasý için bütün dizinin üzerinden
+ hiçbir deðiþiklik yapmadan tam bir geçiþ yapmasý gerekir.
+Üçüncü Geçiþ:
+( 1 2 4 5 8 )  ( 1 2 4 5 8 )
+( 1 2 4 5 8 )  ( 1 2 4 5 8 )
+( 1 2 4 5 8 )  ( 1 2 4 5 8 )
+( 1 2 4 5 8 )  ( 1 2 4 5 8 )
+Sonuç olarak dizide hiç bir elemanýn yeri deðiþmediðinden dizi sýralanmýþ olarak program
+sonlandýrýlýr.
+
+
+
+
+
+
+
+PROGRAM ÝÇERÝSÝNDEKÝ KODU=
+-------------------------------------------------------------
+if(ComboBox1->ItemIndex==0)//sýralama turu olarak ""BUBBLE"" sort seçiliyse
+{
+//bubble sort dongu deðiþkenleri tanýmlanýyor ve sýralama iþlemleri gerçekleþtiriliyor
+
+ ListBox5->Items->Clear();
+ labelfalse();
+ bubble->Visible=true;
+basla=GetTickCount();
+DynamicArray<int>dizi;
+int i,j,adet,deger;
+adet=StrToInt(Edit4->Text);
+dizi.Length=adet;
+for(i=0;i<=adet-1;i++)
+dizi[i]=StrToFloat(ListBox3->Items->Strings[i]);//random sayýlar diziye aktarýlýyor
+for(i=0;i<=adet-1;i++)
+{
+for(j=adet-1;j>i;j--)
+{
+if(dizi[j-1]<dizi[j])//dizi içinde yer deðiþtirme iþlemleri gerçekleþiyor
+{
+deger=dizi[j];
+dizi[j]=dizi[j-1];
+dizi[j-1]=deger;
+}
+}
+}
+for(i=0;i<=adet-1;i++)//dizi  listeye yazýlýyor
+{
+ListBox5->Items->Add(dizi[i]);
+}
+bitir=GetTickCount();
+bubble->Caption=FloatToStr((bitir-basla)/1000);
+Series2->Add(StrToFloat(bubble->Caption),"BUBLE SORT B->K",clBlue);
+}

@@ -1,0 +1,63 @@
+					SIRALAMA ALGORÝTMALARI PROJESÝ.....
+					-----------------------------------
+
+
+
+
+
+#ÖÐRENCÝ BÝLGÝLERÝ
+------------------
+ADI=CÝHAN
+SOYADI=SAVAÞ
+SINIFI=2/B  N.Ö
+NUMARASI=065403083
+BOLUMU=BÝLGÝSAYAR TEKNOLOJÝSÝ VE PROGRAMLAMA
+
+
+//----------------------------------------------------------------------------------------------------------//
+
+#PROJE AMACI=
+-------------	
+	10 ADET SIRALAMA ALGORÝTMASINDAN OLUÞAN PROGRAM OLUÞTURULAN  RANDOM SAYI
+ DEÐERLERÝNÝ NE KADAR SUREDE SIRALAMA YAPABÝLECEÐÝNÝ HESAPLAYARAK HANGÝ ALGORÝTMANIN 
+DAHA HIZLI OLDUÐUNU GRAFÝK ÜZERÝNDE GOSTERMEKTÝR.
+
+
+//----------------------------------------------------------------------------------------------------------//
+
+#PROGRAMDA BULUNAN ALGORÝTMALAR
+------------------------------
+
+
+1-)KABARCIK SIRALAMASI(BUBBLE SORT)
+2-)KABARCIK SIRALAMASI(BUBBLE SORT 2)
+3-)ÝKÝLÝ YERLEÞTÝRMELÝ SIRALAMA (BÝNARY ÝNSERTÝON SORT)
+4-)YERLEÞTÝRÝLEREK SIRALAMA(ÝNSERTÝON SORT)
+5-)ASANSOR SIRALAMASI(ELEVATOR SORT)
+6-)SEÇMELÝ SIRALAMA(SELECTÝON SORT)
+7-)ÝKÝ YÖNLÜ KABARCIK SIRALAMASI(SHAKER SORT)
+8-)ÝKÝ YÖNLÜ KABARCIK SIRALAMASI(SHAKER SORT 2)
+9-)KABUK SIRALAMASI(SHELL SORT)
+10-)HIZLI SIRALAMA(QUÝCK SORT)
+//----------------------------------------------------------------------------------------------------------//
+
+
+#YARARLANILAN KAYNAKLAR
+--------------------------
+*TURKMEN KÝTAPEVÝ Ýhsan Karagülle & Zeydin Pala c++ BUÝLDER 6
+
+*PALME YAYINCILIK Nihat Demirli & Yüksel Ýnan C++ BUÝLDER 6
+
+*M.Yasin Özsaðlam ALGORÝTMA DERS KÝTABI
+
+*ÝNTERNET FORUMLARI
+
+*www.wikipedia.org
+
+
+
+//-----------------------------------------------------------------------------------------------------------//
+NOT=DOSYANIN ÝÇERÝSÝNDE BULUNAN TÜM SIRALAMALARININ AÇIKLAMALARI TXT UZANTILI  NOT DEFTERLERÝNDE 
+TUTULMAKTADIR VE BU NOT DEFTERÝNÝN ÝÇERÝÐÝNDEDE PROGRAM ÝÇERÝSÝNDE KULLANILAN KODLARDA MEVCUTTUR..
+
+

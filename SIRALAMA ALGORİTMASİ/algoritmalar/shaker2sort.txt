@@ -1,0 +1,69 @@
+				SHAKER SORT 2
+				----------------------------
+
+
+
+
+ÝKÝ YÖNLÜ KABARCIK SIRALAMASI(SHAKER SORT 2)
+-------------------------------------------------------------------------------------------
+SIRALAMA BÝÇÝMÝ
+------------------------
+DÝZÝ ÝKÝLÝ ALT PARÇALARA BÖLÜNEREK  KARÞILAÞTIRMA VE YER DEÐÝÞTÝRME
+YAPILIR.YAKLAÞIK SIRALI HALE GELDÝKTEN SONRA KABARCIK SIRALAMASI
+ UYGULANARAK SIRALAMA TAMAMLANIR
+
+PROGRAM ÝÇERÝSÝNDEKÝ KODU=
+-------------------------------------------------------------------
+else if(ComboBox1->ItemIndex==9)//sýralama turu olarak
+ SHAKER  SORT-2 seçiliyse
+{
+ListBox5->Items->Clear();
+labelfalse();
+shaker2->Visible=true;
+basla=GetTickCount();
+DynamicArray<int>dizi;
+int deger,n,adet,m,i;
+adet=StrToInt(Edit4->Text);
+dizi.Length=adet;
+for(i=0;i<adet-1;i++)
+{
+dizi[i]=StrToInt(ListBox3->Items->Strings[i]);
+}
+for(n=adet/2;n>0;n=n/2)
+{
+for(m=n;m>0;m=m/2)
+{
+for(i=0;i<adet-m;i++)
+{
+if(dizi[i]>dizi[i+m])
+{
+deger=dizi[i];
+dizi[i]=dizi[i+m];
+dizi[i+m]=deger;
+}
+}
+}
+}
+boolean degisti;
+
+do
+{
+degisti=false;
+for(int j=0;j<adet-1;j++)
+if(dizi[j+1]>dizi[j])
+{
+deger=dizi[j];
+dizi[j]=dizi[j+1];
+dizi[j+1]=deger;
+degisti=true;
+}
+}while(degisti);
+for(i=0;i<=adet-1;i++)
+{
+ListBox5->Items->Strings[i]=dizi[i];
+}
+
+bitir=GetTickCount();
+shaker2->Caption=FloatToStr((bitir-basla)/1000);
+Series2->Add(StrToFloat(shaker2->Caption),"SHAKER SORT2 B->K",clAqua);
+

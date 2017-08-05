@@ -1,0 +1,47 @@
+				ÝNSERTÝON SORT
+				-----------------------------
+
+
+
+YERLEÞTÝRÝLEREK SIRALAMA(ÝNSERTÝON SORT)
+----------------------------------------------------------------------------------
+SIRALAMA BÝÇÝMÝ
+------------------------------
+
+
+PROGRAM ÝÇERÝSÝNDEKÝ KODU=
+--------------------------------------------------------
+else if(ComboBox1->ItemIndex==6)//sýralama turu olarak insertion sort seçiliyse
+{
+ListBox5->Items->Clear();
+labelfalse();
+insertion->Visible=true;
+basla=GetTickCount();
+DynamicArray<int>dizi;
+int adet,i;
+adet=StrToInt(Edit4->Text);
+dizi.Length=adet;
+for(i=0;i<=adet-1;i++)
+{
+dizi[i]=StrToInt(ListBox3->Items->Strings[i]);
+}
+for( int j=2;j<adet;j++)
+{
+for(int k=0;k<j;k++)
+{
+     if (dizi[k]<dizi[j])
+      {
+        int temp=dizi[k];
+        dizi[k]=dizi[j];
+        dizi[j]=temp;
+      }
+    }
+  }
+ for (int i = 0; i <= adet-1; i++)
+ {
+ ListBox5->Items->Strings[i]=dizi[i];
+ }
+ bitir=GetTickCount();
+insertion->Caption=FloatToStr((bitir-basla)/1000);
+Series2->Add(StrToFloat(insertion->Caption),"INSERTION SORT B->K",clOlive);
+}

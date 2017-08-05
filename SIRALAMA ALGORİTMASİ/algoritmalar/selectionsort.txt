@@ -1,0 +1,53 @@
+				SELECTÝON SORT
+				-------------------------------
+
+
+
+SEÇMELÝ SIRALAMA(SELECTÝON SORT)
+-----------------------------------------------------------------
+SIRALAMA BÝÇÝMÝ=
+--------------------------------
+1-Listedeki en küçük deðerli öðeyi bul. 
+2-Ýlk konumdaki öðeyle bulunan en küçük deðerli öðenin yerini deðiþtir. 
+3-Yukarýdaki adýmlarý listenin ilk elemanýndan sonrasý için (ikinci elemandan baþlayarak) yinele. 
+
+PROGRAM ÝÇERÝSÝNDEKÝ KODU=
+---------------------------------------------------------------
+
+else if(ComboBox1->ItemIndex==1)//selection sort seçiliyse
+{
+ListBox5->Items->Clear();
+labelfalse();
+selection->Visible=true;
+//selection sort deðiþkenleri tanýmlanýyor ve sýralama iþlemleri gerçekleþtiriliyor
+
+
+
+
+basla=GetTickCount();
+DynamicArray<int>dizi;
+int i,j,adet,deger;
+adet=StrToInt(Edit4->Text);
+dizi.Length=adet;
+for(i=0;i<=adet-1;i++)
+dizi[i]=StrToInt(ListBox3->Items->Strings[i]);//random sayýlar diziye aktarýlýyor
+for(i=0;i<=adet-2;i++)
+{
+for(j=i+1;j<=adet-1;j++)
+{
+if(dizi[i]<dizi[j])//dizi içinde yer deðiþtirme iþlemleri gerçekleþiyor
+{
+deger=dizi[j];
+dizi[j]=dizi[i];
+dizi[i]=deger;
+}
+}
+}
+for(i=0;i<=adet-1;i++) //dizi  listeye yazýlýyor
+{
+ListBox5->Items->Add(dizi[i]);
+}
+bitir=GetTickCount();
+selection->Caption=FloatToStr((bitir-basla)/1000);
+Series2->Add(StrToFloat(selection->Caption),"SELECTÝON SORT B->K",clRed);
+}

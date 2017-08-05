@@ -1,0 +1,83 @@
+				QUÝCK SORT
+				---------------------------
+
+
+
+HIZLI SIRALAMA(QUÝCK SORT)
+---------------------------------------------------
+SIRALAMA BÝÇÝMÝ
+------------------------------
+Hýzlý sýralama algoritmasý, sýralanacak bir sayý dizisini daha küçük iki 
+parçaya ayýrýp oluþan bu küçük parçalarýn kendi içinde sýralanmasý mantýðýyla çalýþýr.
+
+Algoritmanýn adýmlarý aþaðýdaki gibidir:
+
+Sayý dizisinden herhangi bir sayýyý pivot eleman olarak seç. 
+Sayý dizisini pivottan küçük olan tüm sayýlar pivotun önüne,
+ pivottan büyük olan tüm sayýlar pivotun arkasýna gelecek biçimde
+ düzenle (pivota eþit olan sayýlar her iki yana da geçebilir).
+ Bu bölümlendirme iþleminden sonra eleman sýralanmýþ son dizide olmasý
+ gerektiði yere gelir. Algoritmanýn bu aþamasýna bölümlendirme aþamasý denir. 
+Pivotun sol ve sað yanýnda olmak üzere oluþan iki ayrý küçük sayý dizisi, 
+hýzlý sýralama algoritmasý bu küçük parçalar üzerinde yeniden özyineli 
+olarak çaðrýlarak sýralanýr. 
+Algoritma içinde sayý kalmayan (eleman sayýsý sýfýr olan) bir alt diziye 
+ulaþtýðýnda bu dizinin sýralý olduðunu varsayar.
+
+
+PROGRAM ÝÇERÝSÝNDEKÝ KODU=
+------------------------------------------------------
+
+
+else if(ComboBox1->ItemIndex==2)//quick sort seçiliyse
+{
+ListBox5->Items->Clear();
+labelfalse();
+quick->Visible=true;
+
+basla=GetTickCount();
+//quick  sort deðiþkenleri tanýmlanýyor ve sýralama iþlemleri gerçekleþtiriliyor
+int i,n;
+adet=StrToInt(Edit4->Text);
+dizi.Length=adet;
+for(i=0;i<=adet-1;i++)
+dizi[i]=StrToInt(ListBox3->Items->Strings[i]);//random sayýlar diziye aktarýlýyor
+sirala(0,adet-1); //tanýmlanmýþ olan void sýrala proseduru çaðýrýlýyor...
+for(n=adet-1;n>=0;n--) //dizi  listeye yazýlýyor
+{
+Form1->ListBox5->Items->Add(IntToStr(dizi[n]));
+}
+bitir=GetTickCount();
+quick->Caption=FloatToStr((bitir-basla)/1000);
+Series2->Add(StrToFloat(quick->Caption),"QUÝCK SORT B->K",clYellow);
+}
+
+
+
+
+
+
+prosedur kýsmý
+
+
+
+DynamicArray<int>dizi;
+int adet;
+void TForm1::sirala(int alt,int ust) //quick sort algoritmasýna ait sýralama iþlemlerini yapan prosedurdur
+{
+int i,j,x,deger;
+i=alt;j=ust;
+x=dizi[floor((alt+ust)/2)];
+do
+{
+while(dizi[i]<x)
+{
+i++;
+}
+while(x<dizi[j])
+{
+j--;
+}
+
+
+

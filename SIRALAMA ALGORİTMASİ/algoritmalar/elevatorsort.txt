@@ -1,0 +1,56 @@
+				ELEVATOR SORT
+				-------------------------------
+
+
+
+
+ASANSOR SIRALAMASI(ELEVATOR SORT)
+-------------------------------------------------------------
+SIRALAMA BÝÇÝMÝ
+-----------------------------
+ÝKÝ YONLU KABARTMA SIRALAMASININ KULLANILDIÐI BÝR ALGORÝTMADIR.
+DÝZÝ ELEMANLARI ÜZERÝNDEN BÝR ELEMANDAN SINRA GELENEL ELEMANIN
+KÜÇÜK OLDUÐU YERE KADAR KABARCIK SIRALAMASI KARÞILAÞTIRMASIYLA 
+GÝDÝLEREK YERLEÞTÝRÝLMESÝ ESASINA DAYANIRYERLEÞTÝRME ÝÞLEMÝNDEN 
+SONRA ON DEÐÝÞTÝRÝP TEKRARK ÝLERÝYE DOÐRUGÝDÝLÝR VE BU ÝÞLEMLERE
+ ÝTERATÝF OLARAK DEVAM EDÝLÝR.KÜÇÜK DÝZÝELEMANLARÝNI KENDÝ YERÝNE 
+TAÞIDIKTAN SONRA YENÝ ELEMANI ALMAYA GÝTMESÝNDEN DOLAYI BU ALGORÝTMAYA 
+ASANSOR SIRALAMASI ADI VERÝLMÝÞTÝR
+
+PROGRAM ÝÇERÝSÝNDEKÝ KODU=
+-----------------------------------------------------
+else if(ComboBox1->ItemIndex==4)//sýralama turu olarak elevator sort seçiliyse
+{
+ListBox5->Items->Clear();
+labelfalse();
+elevator->Visible=true;
+basla=GetTickCount();
+DynamicArray<int>dizi;
+int i,alt,adet,deger;
+adet=StrToInt(Edit4->Text);
+dizi.Length=adet;
+for(i=0;i<=adet-1;i++)
+dizi[i]=StrToFloat(ListBox3->Items->Strings[i]);
+alt=0;
+do
+{
+if(dizi[alt+1]>dizi[alt])
+{
+deger=dizi[alt];
+dizi[alt]=dizi[alt+1];
+dizi[alt+1]=deger;
+if(alt>0)
+alt=alt-1;
+}
+else ++alt;
+}
+while(alt<adet-1);
+for(i=0;i<=adet-1;i++)
+{
+ListBox5->Items->Strings[i]=dizi[i];
+}
+
+bitir=GetTickCount();
+elevator->Caption=FloatToStr((bitir-basla)/1000);
+Series2->Add(StrToFloat(elevator->Caption),"ELEVATOR SORT B->K",clTeal);
+ }
